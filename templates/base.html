@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TO DO APP</title>
+</head>
+<body>
+	<head>
+		<h1>Welcome to our to do app</h1>
+	</head>
+	<main>
+		<h2>To do List</h2>
+		<form action=" " method="POST" />{% csrf_token %}
+			<input type="text" name="content" />
+			<input type="submit" value="submit">
+		</form>
+		<ol>
+			{% for object in objects %}
+			<form action="deletetodo/{{ object.id }}/" style="display: inline;" method="POST"> {% csrf_token %}
+				<li>{{ object.content }}</li><input type="submit" value="delete">
+			</form>
+			{% endfor %}
+		</ol>
+	</main>
+</body>
+</html>
